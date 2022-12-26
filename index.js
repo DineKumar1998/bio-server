@@ -1,13 +1,15 @@
 const express = require('express');
 const transporter = require('./transport');
-var cors = require('cors')
+const cors = require('cors')
+const bodyParser = require('body-parser')
+
 
 const app = express();
 
 app.use(cors({ methods: "GET,HEAD,PUT,PATCH,POST,DELETE" }))
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 const port = 4301;
 
