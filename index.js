@@ -4,7 +4,7 @@ var cors = require('cors')
 
 const app = express();
 
-app.use(cors({ origin: 'https://bio-server-ns4u.vercel.app/sendmail', methods: "GET,HEAD,PUT,PATCH,POST,DELETE", }))
+app.use(cors())
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
