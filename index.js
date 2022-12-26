@@ -1,14 +1,18 @@
-import express, { Express, Request, Response } from 'express';
-import transporter from './transport';
+const express = require('express');
+const transporter = require('./transport');
 
-const app: Express = express();
+const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
-const port = 4201;
+const port = 4301;
 
-app.post('/sendmail', async (req: Request, res: Response) => {
+app.get('/', (req, res) => {
+  res.send({ sucess: "App is started!" })
+})
+
+app.post('/sendmail', async (req, res) => {
   const { name, email, message, project } = req.body;
 
   const info = await transporter.sendMail({

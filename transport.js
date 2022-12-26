@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+const nodemailer =  require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   host: 'smtp-relay.sendinblue.com',
@@ -12,4 +12,4 @@ const transporter = nodemailer.createTransport({
   logger: true,
 });
 
-export default transporter;
+module.exports = transporter;
